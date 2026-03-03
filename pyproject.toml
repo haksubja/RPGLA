@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpgla"
+version = "0.1.0"
+description = "RPG (Role-Playing Game) League Analyzer - A tool to visualize past leagues economic trends."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "Fabricio Faneco Junior", email = "haksubja@gmail.com"}
+]
+dependencies = [
+    "polars>=0.20.0",     # The performance powerhouse
+    "pyarrow>=14.0.0",    # Required for Polars to handle some CSV/Parquet operations
+    "plotly>=5.0.0",      # Interactive plots (crucial for price timelines)
+    "kaleido==0.2.1",     # For saving static images of plots
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",               # Fast linting/formatting
+    "ipykernel",          # For using Jupyter notebooks
+]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]
